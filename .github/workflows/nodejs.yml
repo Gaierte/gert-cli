@@ -1,7 +1,7 @@
 name: 发布npm
 on:
   push:
-    branches: [master]
+    branches: [ft/gert-cli1.0]
 jobs:
   build:
     runs-on: ubuntu-latest
