@@ -13,7 +13,7 @@
 
 - 1.保存代码自动格式化
 - 2.提交前 commit 校验
-- eslint + prettier 校验
+- 3.eslint + prettier 校验
 - husky 自动装载
 
 ## 使用方式
