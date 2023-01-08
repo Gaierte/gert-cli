@@ -4,7 +4,7 @@ import { getPath } from '../src/utils/path';
 const buildInit = async () => {
   const pkgJson = await getPackageJson();
   pkgJson['bin'] = {
-    'xianzao-cli': 'index.js',
+    'gert-cli': 'index.js',
   };
   // 去掉husky
   delete pkgJson.scripts.prepare;

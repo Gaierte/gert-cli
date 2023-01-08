@@ -1,8 +1,8 @@
 <br />
-<h1 align="center">xianzao-cli</h1>
+<h1 align="center">gert-cli</h1>
 <p align="center">
-<a href="https://github.com/xianzao/xianzao-cli/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/xianzao/xianzao-cli"></a>
-<a href="https://github.com/xianzao/xianzao-cli/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/xianzao/xianzao-cli"></a>
+<a href="https://github.com/gaierte/gert-cli/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/gaierte/gert-cli"></a>
+<a href="https://github.com/gaierte/gert-cli/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/gaierte/gert-cli"></a>
 </p>
 
 ## 目标
@@ -22,16 +22,16 @@
 
 ```BASH
 # 1. 项目中执行
-npm i xianzao-cli -D
+npm i gert-cli -D
 
 # 2. 在package.json中添加script
 "scripts": {
-  "xianzao-cli": "xianzao-cli",
+  "gert-cli": "gert-cli",
 },
 
-# 3. 执行npm run xianzao-cli, 即会自动添加依赖
+# 3. 执行npm run gert-cli, 即会自动添加依赖
 ```
 
 ## NPM
 
-项目已自动更新至 NPM，请移步至[xianzao-cli](https://www.npmjs.com/package/xianzao-cli)
+项目已自动更新至 NPM，请移步至[gert-cli](https://www.npmjs.com/package/gert-cli)

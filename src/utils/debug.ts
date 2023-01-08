@@ -16,7 +16,7 @@ const switchDebug = (debug: boolean) => {
  * @param msg 信息
  */
 const debugError = (msg: string) => {
-  debugSwitch && log(chalk.hex('#646cff')(`[xianzao-cli]:`) + chalk.red(msg));
+  debugSwitch && log(chalk.hex('#646cff')(`[gert-cli]:`) + chalk.red(msg));
   // 如果出错就退出
   process.exit(0);
 };
@@ -27,7 +27,7 @@ const debugError = (msg: string) => {
  * @param msg 信息
  */
 const debugInfo = (msg: string) => {
-  debugSwitch && log(chalk.hex('#646cff')(`[xianzao-cli]:`) + chalk.green(msg));
+  debugSwitch && log(chalk.hex('#646cff')(`[gert-cli]:`) + chalk.green(msg));
 };
 
 /**
@@ -37,7 +37,7 @@ const debugInfo = (msg: string) => {
  */
 
 const debugProcess = (msg: string) => {
-  debugSwitch && log(chalk.hex('#646cff')(`[xianzao-cli]:`) + chalk.yellow(msg));
+  debugSwitch && log(chalk.hex('#646cff')(`[gert-cli]:`) + chalk.yellow(msg));
 };
 /**
  * debug warning信息
@@ -45,11 +45,11 @@ const debugProcess = (msg: string) => {
  * @param msg 信息
  */
 const debugWarning = (msg: string) => {
-  log(chalk.hex('#646cff')(`[xianzao-cli]:`) + chalk.yellow(msg));
+  log(chalk.hex('#646cff')(`[gert-cli]:`) + chalk.yellow(msg));
 };
 
 const debugTxt = (msg: string) => {
-  log(chalk.hex('#646cff')(`[xianzao-cli]:`) + chalk.hex('#5c6d82')(msg));
+  log(chalk.hex('#646cff')(`[gert-cli]:`) + chalk.hex('#5c6d82')(msg));
 };
 
 export { switchDebug, debugInfo, debugError, debugWarning, debugProcess, debugTxt };
