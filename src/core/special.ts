@@ -1,15 +1,12 @@
 // 一些特殊的处理
-import fs from 'fs-extra';
-import { env, getPackageJson } from '../utils/env';
-import { getPath } from '../utils/path';
+import fs from 'fs-extra'
+import { env, getPackageJson } from '../utils/env'
+import { getPath } from '../utils/path'
 
 export const specialFn = async () => {
-  const { isVue3 } = env;
-  if (!isVue3) return;
-  let pkgJson = await getPackageJson();
-  if (pkgJson.type) {
-    delete pkgJson.type;
-  }
-  fs.writeJsonSync(getPath('package.json'), pkgJson, { spaces: 2 });
-  // 如果是vue3 的话 需要把package中的 type="module"去掉
-};
+  console.log('env', env)
+  env.isVue3 = true
+  let pkgJson = await getPackageJson()
+  pkgJson['dependencies']['vue'] = '^3.0.0'
+  fs.writeJsonSync(getPath('package.json'), pkgJson, { spaces: 2 })
+}

@@ -4,6 +4,7 @@ import { eslintInit } from './core/eslint'
 import { huskyInit } from './core/husky'
 import { eslintIgnoreInit } from './core/eslintignore'
 import { commitLintInit } from './core/commitlint'
+import { vueTemplateInit } from './core/template'
 import { specialFn } from './core/special'
 import { vscodeInit } from './core/vscode'
 import { debugError, debugProcess, debugTxt } from './utils/debug'
@@ -13,19 +14,18 @@ import { answerType } from './interface'
 export const start = async (base: string, answers: answerType) => {
   const pckJson = await getPackageJson(base)
 
-  const { vue3 = false, plugins = [] } = answers
+  const { vue3 = false, plop = false, plugins = [] } = answers
+  console.log('answers', answers)
 
   await initProjectInfo(pckJson)
-
+  console.log('plugins', plugins)
   try {
     // 针对Vue3模板特殊处理
     vue3 && (await specialFn())
-
-    // 安装eslint 和 prettier 并自动生成配置文件
-    hasElementInArray(plugins, 'eslint') && (await eslintInit())
-
-    // 添加eslint忽略文件
-    hasElementInArray(plugins, 'eslint') && (await eslintIgnoreInit())
+    // 生成vue模板
+    plop && (await vueTemplateInit())
+    // 安装eslint 和 prettier 并自动生成配置文件,添加eslint忽略文件
+    hasElementInArray(plugins, 'eslint') && ((await eslintInit()) as any) && (await eslintIgnoreInit())
 
     // 安装 husky 并自动生成配置文件
     hasElementInArray(plugins, 'husky') && (await huskyInit())

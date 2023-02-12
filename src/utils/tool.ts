@@ -29,7 +29,6 @@ export const spawnSync = (n: string, i: string, runItem: string, type: string, b
       cwd: basePath
     })
     debugInfo(`${runItem}✅`)
-
     resolve({ success: true })
   })
 }
