@@ -1,26 +1,26 @@
 /**
  * vscode 配置
  */
-import fs from 'fs-extra';
-import { getPath } from '../utils/path';
+import fs from 'fs-extra'
+import { getPath } from '../utils/path'
 
 export const vscodeInit = async () => {
-  const haveVscodeSetting = await fs.pathExists(getPath('./vscode/settings.json'));
+  const haveVscodeSetting = await fs.pathExists(getPath('./vscode/settings.json'))
 
-  let vscodeSetting = {};
+  let vscodeSetting = {}
   if (!haveVscodeSetting) {
     vscodeSetting = {
       // 每次保存自动格式化
       'editor.formatOnSave': true,
       // 每次保存的时候将代码按eslint格式进行修复
       'editor.codeActionsOnSave': {
-        'source.fixAll.eslint': true,
+        'source.fixAll.eslint': true
       },
       'editor.defaultFormatter': 'esbenp.prettier-vscode',
       // vue文件默认格式化方式vetur
       '[vue]': {
         // "editor.defaultFormatter": "octref.vetur"
-        'editor.defaultFormatter': 'esbenp.prettier-vscode',
+        'editor.defaultFormatter': 'esbenp.prettier-vscode'
       },
 
       'javascript.format.insertSpaceBeforeFunctionParenthesis': true, // 函数前加上空格 只有在默认vetur的时候生效
@@ -28,19 +28,19 @@ export const vscodeInit = async () => {
       '[javascript]': {
         // "editor.defaultFormatter": "vscode.typescript-language-features"
         // javascript文件默认格式化方式prettier
-        'editor.defaultFormatter': 'esbenp.prettier-vscode',
+        'editor.defaultFormatter': 'esbenp.prettier-vscode'
       },
       // json文件默认格式化方式prettier
       '[json]': {
-        'editor.defaultFormatter': 'esbenp.prettier-vscode',
+        'editor.defaultFormatter': 'esbenp.prettier-vscode'
       },
       // css文件默认格式化方式prettier
       '[css]': {
-        'editor.defaultFormatter': 'esbenp.prettier-vscode',
+        'editor.defaultFormatter': 'esbenp.prettier-vscode'
       },
       // typescript文件默认格式化方式prettier
       '[typescript]': {
-        'editor.defaultFormatter': 'esbenp.prettier-vscode',
+        'editor.defaultFormatter': 'esbenp.prettier-vscode'
       },
 
       // 控制折行方式 - "on" (根据视区宽度折行)
@@ -52,16 +52,16 @@ export const vscodeInit = async () => {
         '*.js': 'javascriptreact',
         '*.vue': 'vue',
         '*.cshtml': 'html',
-        '*.dwt': 'html',
+        '*.dwt': 'html'
       },
       // "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
-      'editor.formatOnPaste': true,
-    };
+      'editor.formatOnPaste': true
+    }
   } else {
     // const nowSetting = await getPackageJson('./vscode/settings.json');
-    const nowSetting = fs.readJSON(getPath('./vscode/settings.json'));
-    vscodeSetting = { ...nowSetting, ...vscodeSetting };
+    const nowSetting = fs.readJSON(getPath('./vscode/settings.json'))
+    vscodeSetting = { ...nowSetting, ...vscodeSetting }
   }
-  fs.outputFileSync(getPath('./.vscode/settings.json'), JSON.stringify(vscodeSetting, null, 2));
-};
+  fs.outputFileSync(getPath('./.vscode/settings.json'), JSON.stringify(vscodeSetting, null, 2))
+}

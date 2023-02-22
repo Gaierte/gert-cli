@@ -1,6 +1,8 @@
 
 .prettierrc
-commitlint.config.js
+!commitlint.config.js
 .babel.config.js
-.umirc.ts
-.eslintrc.js
+!.umirc.ts
+!.cz-config.js
+constant.ts
+ 

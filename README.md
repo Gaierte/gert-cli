@@ -14,8 +14,8 @@
 - 1.快速生成重复模版的文件
 - 2.保存代码自动格式化
 - 3.提交前 commit 校验
-- 4.eslint -> prettier 校验
-- husky 自动装载
+- 4.eslint -> prettier 校验（只对在暂存区里的文件进行校验）
+- 5.husky 自动装载
 
 ## 使用方式
 

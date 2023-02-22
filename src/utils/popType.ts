@@ -18,7 +18,6 @@ const popVersions = {
         default: 'test'
       }
     ])
-    console.log('filesanswer', answer)
     try {
       //是否能访问到这个文件，如果能访问到，说明这个文件已经存在，进入循环的下一步。
       //accessSync的第二个参数就是用来判断该文件是否能被读取
@@ -32,26 +31,24 @@ const popVersions = {
     )
     fs.writeFileSync(
       baseUrl + '/plopfile.js',
-      "module.exports = plop => {plop.setGenerator('vue3Component', {description: 'vue3组件模版生成器',prompts: [ {type: 'input',name: 'common', message: '请输入公共模版组件名称',default: 'comMon'}], actions: [{ type: 'add',path: 'src/components/{{common}}.vue',force: true, templateFile: 'src/templates/component.hbs'}]});}"
+      "module.exports = plop => {plop.setGenerator('vue3Component', {description: 'vue3组件模版生成器',prompts: [ {type: 'input',name: 'common', message: '请输入公共模版组件名称',default: 'comMon'}], actions: [{ type: 'add',path: 'src/template_components/{{common}}.vue',force: true, templateFile: 'src/templates/component.hbs'}]});}"
     )
     const args = ['run', 'plop', 'vue3Component']
     spawn.sync('npm', args, { stdio: 'inherit' })
 
     const fileDir = path.join(__dirname, `./../${answer.files}`)
     const tempDir = path.join(process.cwd(), '/src/templates/component.hbs')
-    console.log('fileDir', fileDir, answer)
 
     fs.readdir(fileDir, (err, files) => {
       if (err) {
         throw err
       }
       files.forEach((file) => {
-        console.log('file', file)
         ejs.renderFile(tempDir, answer, (err: any, result: string) => {
           if (err) {
             throw err
           }
-          fs.writeFileSync(path.join(fileDir, `/${file}/index.vue`), result)
+          fs.writeFileSync(path.join(fileDir, `/${file}/Index.vue`), result)
         })
       })
     })

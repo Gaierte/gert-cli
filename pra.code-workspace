@@ -1,25 +1,25 @@
 {
-	"folders": [
-		{
-			"path": "../../pra"
-		},
-		{
-			"path": "../../storage/vue3-elm"
-		},
-		{
-			"path": "../../open source/vue-cli_v3/vue-cli"
-		},
-		{
-			"path": "../../storage/trade-basis-anyi"
-		},
-		{
-			"path": "../../storage/trade-official-website"
-		},
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "trade-basis-anyi"
-	}
+  "folders": [
+    {
+      "path": "../../pra"
+    },
+    {
+      "path": "../../storage/vue3-elm"
+    },
+    {
+      "path": "../../open source/vue-cli_v3/vue-cli"
+    },
+    {
+      "path": "../../storage/trade-basis-anyi"
+    },
+    {
+      "path": "../../storage/trade-official-website"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "trade-basis-anyi"
+  }
 }

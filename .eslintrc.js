@@ -13,6 +13,18 @@ module.exports = {
   plugins: ['prettier'],
   extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', 'plugin:prettier/recommended'],
   rules: {
+    'vue/multi-word-component-names': [
+      1,
+      {
+        ignores: ['index'] //需要忽略的组件名
+      }
+    ],
+    'vue/no-parsing-error': [
+      2,
+      {
+        'invalid-first-character-of-tag-name': false
+      }
+    ],
     'vue/order-in-components': 'off',
     'vue/html-self-closing': 'off',
     'vue/require-default-prop': 'off',

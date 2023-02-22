@@ -1,15 +1,17 @@
 /**
  * husk 结合 commitlint 提交信息校验
  */
-import fs from 'fs-extra';
-import { getPath } from '../utils/path';
+import fs from 'fs-extra'
+import { getPath } from '../utils/path'
 
 const eslintignore = `
 .prettierrc
 !commitlint.config.js
 .babel.config.js
 !.umirc.ts
- `;
+!.cz-config.js
+constant.ts
+ `
 export const eslintIgnoreInit = async () => {
-  fs.outputFileSync(getPath('.eslintignore'), eslintignore);
-};
+  fs.outputFileSync(getPath('.eslintignore'), eslintignore)
+}

@@ -15,10 +15,8 @@ export const start = async (base: string, answers: answerType) => {
   const pckJson = await getPackageJson(base)
 
   const { vue3 = false, plop = false, plugins = [] } = answers
-  console.log('answers', answers)
 
   await initProjectInfo(pckJson)
-  console.log('plugins', plugins)
   try {
     // 针对Vue3模板特殊处理
     vue3 && (await specialFn())

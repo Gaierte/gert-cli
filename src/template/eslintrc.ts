@@ -1,4 +1,4 @@
-import { getEnv } from '../utils/env';
+import { getEnv } from '../utils/env'
 
 const baseEslint = `
 'prettier/prettier': 'error',
@@ -226,7 +226,7 @@ yoda: [2, 'never'],
   }
 ],
 'array-bracket-spacing': [2, 'never']
-`;
+`
 
 export const eslintrcFn = () => {
   // vue2
@@ -246,6 +246,15 @@ module.exports = {
     plugins: ['prettier'],
     extends: ['plugin:vue/recommended', 'eslint:recommended', 'plugin:prettier/recommended'],
     rules: {
+      'vue/multi-word-component-names': [
+      1,
+      {
+        ignores: ['index'] //需要忽略的组件名
+      }
+      ],
+      'vue/no-parsing-error': [2, { 
+        "invalid-first-character-of-tag-name": false
+     }],
       'vue/order-in-components': 'off',
       'vue/html-self-closing': 'off',
       'vue/require-default-prop': 'off',
@@ -267,7 +276,7 @@ module.exports = {
     } 
   }
   
-`;
+`
   // vue3
   if (getEnv('isVue3')) {
     eslintrcInit = `
@@ -286,6 +295,15 @@ module.exports = {
     plugins: ['prettier'],
     extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', 'plugin:prettier/recommended'],
     rules: {
+      'vue/multi-word-component-names': [
+      1,
+      {
+        ignores: ['index'] //需要忽略的组件名
+      }
+      ],
+      'vue/no-parsing-error': [2, { 
+        "invalid-first-character-of-tag-name": false
+     }],
       'vue/order-in-components': 'off',
       'vue/html-self-closing': 'off',
       'vue/require-default-prop': 'off',
@@ -306,7 +324,7 @@ module.exports = {
       ${baseEslint}
     }
   }
-  `;
+  `
   }
   if (getEnv('isReact')) {
     eslintrcInit = `
@@ -329,7 +347,7 @@ module.exports = {
       ${baseEslint}
     }
   }
-  `;
+  `
   }
-  return eslintrcInit;
-};
+  return eslintrcInit
+}

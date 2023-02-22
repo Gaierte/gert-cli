@@ -14,13 +14,13 @@ const promptList = [
     message: '是否需要自动生成vue模版文件？',
     name: 'plop'
   },
-  {
-    type: 'input',
-    message: '请输入公共组件名称',
-    name: 'component',
-    default: 'component',
-    when: (answers: answerType) => answers.plop
-  },
+  // {
+  //   type: 'input',
+  //   message: '请输入公共组件名称',
+  //   name: 'component',
+  //   default: 'component',
+  //   when: (answers: answerType) => answers.plop
+  // },
   {
     type: 'checkbox',
     message: '选择要安装的插件(默认全选)',

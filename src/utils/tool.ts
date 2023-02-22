@@ -34,7 +34,7 @@ export const spawnSync = (n: string, i: string, runItem: string, type: string, b
 }
 
 export const writeInPkg = async (devArr: string[], key: string = 'devDependencies') => {
-  let pkg = await getPackageJson()
+  const pkg = await getPackageJson()
   devArr.forEach((item: string) => {
     // 为了防止安装包里面的名字有@
     const index = item.lastIndexOf('@')

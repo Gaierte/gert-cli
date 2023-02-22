@@ -6,5 +6,4 @@ export const prettierrcInit = `
     "tabWidth": 2,
     "trailingComma": "none"
   }
-  
-`;
+`

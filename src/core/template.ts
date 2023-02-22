@@ -9,7 +9,6 @@ import chalk from 'chalk'
 const ora = require('ora')
 
 export const vueTemplateInit = async () => {
-  console.log('env', env)
   try {
     const spinner = ora()
     spinner.start('模版引擎 loading...')
@@ -25,7 +24,7 @@ export const vueTemplateInit = async () => {
   } catch (e) {
     throw new Error('err')
   }
-  let pkgJson = await getPackageJson()
+  const pkgJson = await getPackageJson()
   pkgJson['scripts']['plop'] = 'plop'
   fs.writeJsonSync(getPath('package.json'), pkgJson, { spaces: 2 })
   const { isVue3, isVue2 } = env
