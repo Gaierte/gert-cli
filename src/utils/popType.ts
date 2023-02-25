@@ -15,15 +15,24 @@ const popVersions = {
         type: 'input',
         name: 'files',
         message: '请输入需要生成模版文件的目录',
-        default: 'test'
+        default: 'components'
       }
     ])
+    const templateFiles = 'src/templates'
+    const templateFilesArr = templateFiles.split('/')
     try {
       //是否能访问到这个文件，如果能访问到，说明这个文件已经存在，进入循环的下一步。
       //accessSync的第二个参数就是用来判断该文件是否能被读取
-      fs.accessSync(baseUrl + '/src/templates', fs.constants.R_OK)
+      fs.accessSync(baseUrl + templateFiles, fs.constants.R_OK)
     } catch (e) {
-      fs.mkdirSync(baseUrl + '/src/templates')
+      let filesStr = ''
+      for (let index = 0; index < templateFilesArr.length; index++) {
+        const file = templateFilesArr[index]
+        filesStr += '/'
+        filesStr += file
+        if (fs.existsSync(baseUrl + filesStr)) continue
+        fs.mkdirSync(baseUrl + filesStr)
+      }
     }
     fs.writeFileSync(
       baseUrl + '/src/templates/component.hbs',
@@ -37,6 +46,11 @@ const popVersions = {
     spawn.sync('npm', args, { stdio: 'inherit' })
 
     const fileDir = path.join(__dirname, `./../${answer.files}`)
+    try {
+      fs.accessSync(fileDir, fs.constants.R_OK)
+    } catch (e) {
+      fs.mkdirSync(fileDir)
+    }
     const tempDir = path.join(process.cwd(), '/src/templates/component.hbs')
 
     fs.readdir(fileDir, (err, files) => {
